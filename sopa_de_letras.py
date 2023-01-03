@@ -61,7 +61,7 @@ class Tablero:
                     
          
             
-    def lista_palabras_dic(self):               #palabras solas en el diccioario
+    def lista_palabras_dic(self):               
         self.palabras_dicc= self.dicci_solo_palabras
         return self.palabras_dicc                     
                 
@@ -127,7 +127,7 @@ class Juego:
         palabras_encontradas=[]                                                                      
         
         while len(palabras_encontradas) != len (self.tablero.lista_palabras_dic()):
-            palabra= input ("Ingrese la palabra encontrada (o fin para terminar el juego): ")              #PIDE UNA VUELTA MAS DEL INPUT PERO NO HACE NADA                                                                          
+            palabra= input ("Ingrese la palabra encontrada (o fin para terminar el juego): ")                                                                                     
             if palabra == "fin":
                 ordenar_alf = self.tablero.lista_palabras_dic() - palabras_encontradas
                 print ("Las palabras que no fueron encontradas son: ",sorted(ordenar_alf))

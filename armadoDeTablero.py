@@ -20,7 +20,7 @@ class Generar_tablero:
                 if self.tablero [x_inicio][y_inicio + i] != -1:
                     return True
     
-    def generar (self,lista_palabras):  #genero el tablero
+    def generar (self,lista_palabras):  
         self.tablero = []
         self.diccionario = {}
         i= 0
@@ -36,7 +36,7 @@ class Generar_tablero:
             x_inicio = random.randrange(0, self.N-len(palabra))
             y_inicio = random.randrange(0,self.N-len(palabra))
             orientacion = random.choice([True, False])
-            while self.verificar_ubicacion (len(palabra),x_inicio,y_inicio,orientacion) == False:   #porque no me toma la funcion verificar
+            while self.verificar_ubicacion (len(palabra),x_inicio,y_inicio,orientacion) == False:   
                 x_inicio = random.randrange(0, self.N-len(palabra))
                 y_inicio = random.randrange(0,self.N-len(palabra))
             if orientacion == True:
@@ -66,7 +66,7 @@ class Obtener_datos:
                                           
 
     def obtener_datos_usuario (self):
-        def func_datos (texto,func):        #funcion de pedir dato
+        def func_datos (texto,func):       
             dato = input (texto)
             while not func (dato) :
                 dato = input (texto)
@@ -93,7 +93,7 @@ class Obtener_datos:
             diccionario.append (palabra)
         print (diccionario)
 
-        def validar_archivo(nombre):    #valida el tamaño del nombre del archivo
+        def validar_archivo(nombre):   
             return int (len (nombre) < 30) 
 
         nombre_archivo = str (func_datos ("Ingrese el nombre del archivo (menor a 30 caracteres): ", validar_archivo))
@@ -110,7 +110,7 @@ class Escritor:
     
 
 
-    def escribir_tablero (self): #EL CSV DEL TABLERO
+    def escribir_tablero (self): 
         with open (self.nombre_archivo + ".csv", "w",newline= "") as armadoDeTablero:
             escritor = csv.writer (armadoDeTablero)
             escritor.writerows (self.tablero)
